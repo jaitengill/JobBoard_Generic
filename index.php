@@ -69,7 +69,7 @@ $app->get('/(:page)', function ($page=null) use ($app) {
                     array('lang' => $lang,
                         'seo_url'=>$seo_url, 
                         'seo_title'=>$seo_title, 
-                        'seo_desc'=>$seo_desc, 
+                        'seo_desc'=>$seo_desc,
                         'jobs'=>$jobs));
     }
 });

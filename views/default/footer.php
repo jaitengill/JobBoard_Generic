@@ -1,14 +1,78 @@
-        
-        <div class="row" id="footer">
-            <hr />
-            <div class="col-md-12">
-                
-                <p class="text-muted credit">&copy; <?php _e(APP_NAME); ?></p>
-             </div>
-        </div>
+        <footer class="text-center-xs space--xs ">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-7">
+                        <ul class="list-inline">
+                            <li>
+                                <a href="#">
+                                    <span class="h6 type--uppercase">All Jobs</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <span class="h6 type--uppercase">FAQ</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <span class="h6 type--uppercase">Resources</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <span class="h6 type--uppercase">How to post?</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col-md-5 text-right text-center-xs">
+                        <ul class="social-list list-inline list--hover">
+                            <li>
+                                <a href="#">
+                                    <i class="socicon socicon-google icon icon--xs"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <i class="socicon socicon-twitter icon icon--xs"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <i class="socicon socicon-facebook icon icon--xs"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <i class="socicon socicon-instagram icon icon--xs"></i>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <!--end of row-->
+                <div class="row">
+                    <div class="col-md-7">
+                        <span class="type--fine-print">&copy;
+                            <span class="update-year"></span> <?php _e(APP_NAME); ?></span>
+                        <a class="type--fine-print" href="#">Privacy Policy</a>
+                        <a class="type--fine-print" href="#">Legal</a>
+                    </div>
+                    <div class="col-md-5 text-right text-center-xs">
+                        <a class="type--fine-print" href="#">support@<?php _e(APP_NAME); ?></a>
+                    </div>
+                </div>
+                <!--end of row-->
+            </div>
+            <!--end of container-->
+        </footer>
     
     </div> <!-- /container -->
     
+    <a class="back-to-top inner-link" href="#start" data-scroll-class="100vh:active">
+        <i class="stack-interface stack-up-open-big"></i>
+    </a>
+
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
@@ -45,5 +109,24 @@
         })();
     </script>
     <?php endif; ?>
+
+  
+
+    <script src="<?php _e(THEME_ASSETS); ?>js/stack/jquery-3.1.1.min.js"></script>
+    <script src="<?php _e(THEME_ASSETS); ?>js/stack/flickity.min.js"></script>
+    <script src="<?php _e(THEME_ASSETS); ?>js/stack/easypiechart.min.js"></script>
+    <script src="<?php _e(THEME_ASSETS); ?>js/stack/parallax.js"></script>
+    <script src="<?php _e(THEME_ASSETS); ?>js/stack/typed.min.js"></script>
+    <script src="<?php _e(THEME_ASSETS); ?>js/stack/datepicker.js"></script>
+    <script src="<?php _e(THEME_ASSETS); ?>js/stack/isotope.min.js"></script>
+    <script src="<?php _e(THEME_ASSETS); ?>js/stack/ytplayer.min.js"></script>
+    <script src="<?php _e(THEME_ASSETS); ?>js/stack/granim.min.js"></script>
+    <script src="<?php _e(THEME_ASSETS); ?>js/stack/jquery.steps.min.js"></script>
+    <script src="<?php _e(THEME_ASSETS); ?>js/stack/countdown.min.js"></script>
+    <script src="<?php _e(THEME_ASSETS); ?>js/stack/twitterfetcher.min.js"></script>
+    <script src="<?php _e(THEME_ASSETS); ?>js/stack/spectragram.min.js"></script>
+    <script src="<?php _e(THEME_ASSETS); ?>js/stack/smooth-scroll.min.js"></script>
+    <script src="<?php _e(THEME_ASSETS); ?>js/stack/scripts.js"></script>
+
   </body>
 </html>

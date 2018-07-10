@@ -32,7 +32,7 @@ spl_autoload_register(function ($class) {
 $lang = new Translate();
 
 // APPLICATION SETTINGS
-define('APP_NAME', 'ComeAndHireMe Job Board');
+define('APP_NAME', 'HealthcarePRJobs.London');
 define('APP_DESC', $lang->t('app|desc'));
 define('APP_AUTHOR', 'Elinore Tenorio (elinore.tenorio@gmail.com)');
 define('APP_MODE', 'development'); // set to 'production' if site is live, affects RedBean not being frozen if not in correct mode
@@ -122,6 +122,17 @@ if (APP_MODE == 'production') {
 } else {
 	$debug = true;
 }
+
+//Stripe Payments
+require_once('vendor/autoload.php');
+
+global $stripe;
+$stripe = array(
+  "secret_key"      => "sk_test_BQokikJOvBiI2HlWgH4olfQ2",
+  "publishable_key" => "pk_test_g6do5S237ekq10r65BnxO6S0"
+);
+
+\Stripe\Stripe::setApiKey($stripe['secret_key']);
 
 // SLIM MICROFRAMEWORK
 require 'Slim/Slim.php';

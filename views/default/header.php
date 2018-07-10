@@ -11,10 +11,21 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="<?php _e(THEME_ASSETS); ?>css/bootstrap.min.css" rel="stylesheet">
-    <link href="<?php _e(THEME_ASSETS); ?>css/bootstrap-theme.min.css" rel="stylesheet">
     <link href="<?php _e(THEME_ASSETS); ?>css/theme.css" rel="stylesheet">
+    
+    <!-- From Stack Theme -->
+    <link href="<?php _e(THEME_ASSETS); ?>css/stack/stack-interface.css" rel="stylesheet" type="text/css" media="all" />
+    <link href="<?php _e(THEME_ASSETS); ?>css/stack/socicon.css" rel="stylesheet" type="text/css" media="all" />
+    <link href="<?php _e(THEME_ASSETS); ?>css/stack/lightbox.min.css" rel="stylesheet" type="text/css" media="all" />
+    <link href="<?php _e(THEME_ASSETS); ?>css/stack/flickity.css" rel="stylesheet" type="text/css" media="all" />
+    <link href="<?php _e(THEME_ASSETS); ?>css/stack/iconsmind.css" rel="stylesheet" type="text/css" media="all" />
+    <link href="<?php _e(THEME_ASSETS); ?>css/stack/jquery.steps.css" rel="stylesheet" type="text/css" media="all" />
+    <link href="<?php _e(THEME_ASSETS); ?>css/stack/theme.css" rel="stylesheet" type="text/css" media="all" />
+    <link href="<?php _e(THEME_ASSETS); ?>css/stack/custom.css" rel="stylesheet" type="text/css" media="all" />
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:200,300,400,400i,500,600,700%7CMerriweather:300,300i" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  
     <link rel="shortcut icon" href="<?php _e(THEME_ASSETS);; ?>ico/favicon.png">
-
     <!-- Open Graph -->
     <meta property="og:title" content="<?php _e($seo_title); ?>" />
     <meta property="og:url" content="<?php _e($seo_url); ?>" />
@@ -32,48 +43,73 @@
     <?php endif; ?>
   </head>
   <body>
-    <!-- Fixed navbar -->
-    <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-      <div class="container">
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <a class="navbar-brand" href="<?php _e(BASE_URL); ?>"><?php _e(APP_NAME); ?></a>
-        </div>
-        <div class="navbar-collapse collapse">
-          <ul class="nav navbar-nav">
-            <li class="active"><a href="<?php _e(BASE_URL); ?>"><?php echo $lang->t('link|home'); ?></a></li>
-            <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown"><?php echo $lang->t('link|categories'); ?> <b class="caret"></b></a>
-              <ul class="dropdown-menu">
-                <?php foreach($categories as $cat): ?>
-                <li><a href="<?php _e(BASE_URL . "categories/{$cat->id}/{$cat->url}"); ?>"><?php _e($cat->name); ?></a></li>
-                <?php endforeach; ?>
-              </ul>
-            </li>
-            <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown"><?php echo $lang->t('link|cities'); ?> <b class="caret"></b></a>
-              <ul class="dropdown-menu">
-                <?php foreach($cities as $cit): ?>  
-                <li><a href="<?php _e(BASE_URL . "cities/{$cit->id}/{$cit->url}"); ?>"><?php _e($cit->name); ?></a></li>
-                <?php endforeach; ?>
-              </ul>
-            </li>
-            <li><a href="<?php _e(BASE_URL .'about'); ?>"><?php echo $lang->t('link|about'); ?></a></li>
-            <li><a href="<?php _e(BASE_URL .'contact'); ?>"><?php echo $lang->t('link|contact'); ?></a></li>
-            <?php if (userIsValid()): ?>
-                <li><a href="<?php _e(BASE_URL .'admin/manage'); ?>"><?php echo $lang->t('link|admin'); ?></a></li>
-            <?php else: ?>
-            	<li><a href="<?php _e(BASE_URL .'admin/login'); ?>"><?php echo $lang->t('link|login'); ?></a></li>
-            <?php endif; ?>
-          </ul>
-        </div><!--/.nav-collapse -->
-      </div>
-    </div>
+        <div class="nav-container ">
+            <div class="bar bar--sm visible-xs">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-3 col-md-2">
+                            <a class="navbar-brand" href="<?php _e(BASE_URL); ?>"><?php _e(APP_NAME); ?></a>
 
-    <div class="container theme-showcase">
+                        </div>
+                        <div class="col-9 col-md-10 text-right">
+                            <a href="#" class="hamburger-toggle" data-toggle-class="#menu1;hidden-xs">
+                                <i class="icon icon--sm stack-interface stack-menu"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <!--end of row-->
+                </div>
+                <!--end of container-->
+            </div>
+            <!--end bar-->
+            <nav id="menu1" class="bar bar--sm bar-1 hidden-xs bg--secondary">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-5 hidden-xs">
+                            <div class="bar__module">
+                                <a class="navbar-brand" href="<?php _e(BASE_URL); ?>"><?php _e(APP_NAME); ?></a>
+                            </div>
+                            <!--end module-->
+                        </div>
+                        <div class="col-lg-7 col-md-12 text-right text-left-xs text-left-sm">
+                            <div class="bar__module">
+                                <ul class="menu-horizontal text-left">
+                                    <li>
+                                        <a href="">Home</span>
+                                    </li>
+                                    <li>
+                                        <a href="">All Jobs</span>
+                                    </li>
+                                    <li>
+                                        <a href="">FAQ</span>
+                                    </li>
+                                    <li>
+                                        <a href="">Resources</span>
+                                    </li>
+                                    <li>
+                                        <a href="">How to post</span>
+                                    </li>
+                                   
+                                </ul>
+                            </div>
+                            <!--end module-->
+                            <div class="bar__module">
+                                <a class="btn btn--sm btn--primary type--uppercase" href="#">
+                                    <span class="btn__text">
+                                        Post a Job
+                                    </span>
+                                </a>
+                            </div>
+                            <!--end module-->
+                        </div>
+                    </div>
+                    <!--end of row-->
+                </div>
+                <!--end of container-->
+            </nav>
+            <!--end bar-->
+        </div>
+
+        <div class="main-container theme-showcase">
+
      
