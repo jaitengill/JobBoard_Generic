@@ -4,16 +4,16 @@
                     <div class="col-md-7">
                         <ul class="list-inline">
                             <li>
-                                <a href="#">
+                                <a href="/all">
                                     <span class="h6 type--uppercase">All Jobs</span>
                                 </a>
                             </li>
                             <li>
-                                <a href="#">
+                                <a href="/faq">
                                     <span class="h6 type--uppercase">FAQ</span>
                                 </a>
                             </li>
-                            <li>
+                         <!--    <li>
                                 <a href="#">
                                     <span class="h6 type--uppercase">Resources</span>
                                 </a>
@@ -22,14 +22,14 @@
                                 <a href="#">
                                     <span class="h6 type--uppercase">How to post?</span>
                                 </a>
-                            </li>
+                            </li> -->
                         </ul>
                     </div>
                     <div class="col-md-5 text-right text-center-xs">
                         <ul class="social-list list-inline list--hover">
                             <li>
                                 <a href="#">
-                                    <i class="socicon socicon-google icon icon--xs"></i>
+                                    <i class="socicon socicon-linkedin icon icon--xs"></i>
                                 </a>
                             </li>
                             <li>
@@ -37,16 +37,7 @@
                                     <i class="socicon socicon-twitter icon icon--xs"></i>
                                 </a>
                             </li>
-                            <li>
-                                <a href="#">
-                                    <i class="socicon socicon-facebook icon icon--xs"></i>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    <i class="socicon socicon-instagram icon icon--xs"></i>
-                                </a>
-                            </li>
+         
                         </ul>
                     </div>
                 </div>
@@ -70,7 +61,7 @@
     </div> <!-- /container -->
     
     <a class="back-to-top inner-link" href="#start" data-scroll-class="100vh:active">
-        <i class="stack-interface stack-up-open-big"></i>
+        <i class="stack-interface icon-Arrow-Down"></i>
     </a>
 
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->

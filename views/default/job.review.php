@@ -1,121 +1,83 @@
 <?php include 'header.php'; ?>
 
 <div class="container">
-  <div class="wizard">
-<script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
-          data-key="sk_test_BQokikJOvBiI2HlWgH4olfQ2"
-          data-description="Access for a year"
-          data-amount="5000"
-          data-locale="auto"></script>
-      <h5><?php echo $lang->t('jobs|step2'); ?> </h5>
-      <section>
-        <h2 style="margin-left: -15px;"><?php echo $lang->t('jobs|review_ad'); ?></h2>
-        <p class="lead" style="margin-left: -15px;"><?php echo $lang->t('jobs|describe_position'); ?></p>
-        <form class="row" role="form" action="<?php _e(BASE_URL . "jobs/{$job->id}/publish/{$job->token}"); ?>" method="post" enctype="multipart/form-data">
-            <div class="row col-md-12">
-                <label><?php echo $lang->t('jobs|title'); ?></label>
-                <input type="text" id="title" name="title" value="<?php _e($job->title); ?>" />
-            </div>
-            <div class="row col-md-12">
-              <div class="col-md-6">
-                  <label><?php echo $lang->t('jobs|category'); ?></label>
-                  <div class="input-select">
+  <!--todo - need to move this somewhere else -->  
+  <div class="wizard clearfix active" style="padding-bottom: 2em;" role="application" id="steps-uid-0"><div class="steps clearfix"><ul role="tablist"><li role="tab" class="first current" aria-disabled="false" aria-selected="true"><a id="steps-uid-0-t-0" href="#steps-uid-0-h-0" aria-controls="steps-uid-0-p-0"><span class="current-info audible">current step: </span><span class="number">1.</span> Create</a></li><li role="tab" class="current" aria-disabled="true"><a id="steps-uid-0-t-1" href="#steps-uid-0-h-1" aria-controls="steps-uid-0-p-1"><span class="number">2.</span> Review</a></li><li role="tab" class="disabled" aria-disabled="true"><a id="steps-uid-0-t-2" href="#steps-uid-0-h-2" aria-controls="steps-uid-0-p-2"><span class="number">3.</span> Payment</a></li><li role="tab" class="disabled last" aria-disabled="true"><a id="steps-uid-0-t-3" href="#steps-uid-0-h-3" aria-controls="steps-uid-0-p-3"><span class="number">4.</span> Publish</a></li></ul></div></div>    
 
-                      <select name="category" id="category">
-                        <?php foreach($categories as $category): ?>
-                            <option value="<?php _e($category->id); ?>" <?php if($category->id == $job->category) { _e("selected"); } ?>><?php _e($category->name); ?></option>
-                        <?php endforeach; ?>
-                      </select>
+  <section class="col-md-12" style="background: #fafafa; border-radius:10px; padding-top: 1.5em;">
+    <h2><?php echo $lang->t('jobs|review_ad'); ?></h2>
+    <a class="btn btn--primary" href="#" onclick="history.go(-1)" style="background: #71e8d2; border:none; margin-bottom: 1em;">
+      <span class="btn__text">Edit Posting</span>
+    </a>
 
-                  </div>
-              </div>
-              <div class="col-md-6">
-                  <label><?php echo $lang->t('jobs|city'); ?></label>
-                  <div class="input-select">
-                      <select name="city" id="city">
-                        <?php foreach($cities as $city): ?>
-                        <option value="<?php _e($city->id); ?>"><?php _e($city->name); ?></option>
-                        <?php endforeach; ?>
-                      </select>
-                  </div>
-              </div>
-            </div>
-            <div class="row col-md-12">
-                <label><?php echo $lang->t('jobs|description'); ?></label>
-              <textarea id="description" data-provide="markdown" name="description" rows="15" required ><?php _e($job->description, 'input'); ?></textarea>
-            </div>
-
-            <div class="row col-md-12">
-              <div class="col-md-6">
-                  <label>Compensation:</label>
-                  <textarea id="perks" name="perks" placeholder="100,000 GBP Yearly" rows="2" ><?php _e($job->perks, 'input'); ?></textarea>
-              </div>
-              <div class="col-md-6">
-                  <label><?php echo $lang->t('jobs|how_to_apply'); ?></label>
-                  <textarea id="how_to_apply" name="how_to_apply" placeholder="Please send your resume to hr@ourcompany.com" rows="2"><?php _e($job->how_to_apply, 'input'); ?></textarea>
-              </div>
-            </div>
-            
-            <div class="col-md-12 row">
-              <h2><?php echo $lang->t('jobs|company'); ?></h2>
-              <p class="lead"><?php echo $lang->t('jobs|company_info'); ?></p>
-            </div>
-
-            <div class="row col-md-12">
-                <?php if ($job->logo != ''): ?>
-<!--                   <img src="<?php echo ASSET_URL ."images/thumb_{$job->logo}"; ?>" alt="" class="img-thumbnail" style="width:100px; height:100px; border-radius:100px;">  
- -->                <?php endif; ?>
-            </div>
-
-            <div class="row col-md-12">
-              <div class="col-md-6">
-                  <label><?php echo $lang->t('jobs|company_name'); ?></label>
-                  <input id="company_name" name="company_name" value="<?php _e($job->company_name); ?>" required />
-              </div>
-        
-              <div class="col-md-6">
-
-                  <label><?php echo $lang->t('jobs|logo'); ?></label>
-                  <input type="file" class="filestyle" data-classButton="btn btn-default btn-lg" id="logo" name="logo" accept="image/*" data-buttonText="<?php echo $lang->t('jobs|btn_logo'); ?>" />
-              </div>
-            </div>
-
-            <div class="row col-md-12">
-              <div class="col-md-6">
-                  <label><?php echo $lang->t('jobs|website'); ?></label>
-                  <input id="url" name="url" type="url" value="<?php _e($job->url); ?>"/>
-              </div>
-              <div class="col-md-6">
-                  <label><?php echo $lang->t('jobs|email'); ?></label>
-                  <input type="email" name="email" id="email" placeholder="Email Address" value="<?php _e($job->email); ?>" disabled required/>
-              </div>
-            </div>
-
+    <section class="space--sm" style="background:#fff; padding-top:3em; padding-bottom: 0.5em;">
+      <div class="container">
+        <div class="row">
             <div class="col-md-12">
-                <input type="hidden" name="id" value="<?php _e($job->id); ?>" />
-                <input type="hidden" name="token" value="<?php _e($job->token); ?>" />
-                <input type="hidden" name="trap" value="" />
-                <input type="hidden" name="<?php _e($csrf_key); ?>" value="<?php _e($csrf_token); ?>">
-                <button type="submit" class="btn btn--primary" value="<?php echo $lang->t('jobs|btn_submit'); ?>">Submit Your Ad <button/>
-           
+                <h1><?php _e($job->title); ?></h1>
+                <?php if ($job->logo != ''): ?>
+                    <img src="<?php echo ASSET_URL ."images/thumb_{$job->logo}"; ?>" alt="" class="img-thumbnail">
+                <?php endif; ?>
+                <br>
+                <small class="muted"><?php echo $lang->t('jobs|posted'); ?> <?php niceDate($job->created); ?></small>
+                <h5><?php _e($job->company_name); ?></h5>
+                <h5><?php _e($city); ?> (<?php _e($category); ?>)</h5>
+                <h5><a href="<?php _e($job->url); ?>" target="_blank"><?php _e(excerpt($job->url, 50)); ?></a></h5>
+                <hr>
             </div>
-        </form>
-      </section>
-      <h5><?php echo $lang->t('jobs|step2'); ?></h5>
-      <section>
-        zzzzz
-      </section>
-      <h5>Payment</h5>
-      <section>
-        ... Panel Content ...
-      </section>
-      <h5><?php echo $lang->t('jobs|step3'); ?></h5>
-      <section>
-        ... Panel Content ...
-      </section>
-  </div>
-</div>
+        </div>
+      </div>
+      <div class="container">
+        <div class="row justify-content-around">
+            <div class="col-md-8 col-lg-7">
+                <?php echo Parsedown::instance()->parse($job->description); ?>
+            </div>
+            <div class="col-md-4 col-lg-3">
+                <div class="text-block">
+                    <h5>Compensation</h5>
+                    <?php if ($job->perks != ''): ?>
+                    <p class="lead">
+                        <?php _e($job->perks,'r'); ?>
+                    </p>
+                    <?php endif; ?>
+                </div>
+                <div class="text-block">
+                    <h5>Location</h5>
+                    <p>
+                        <?php _e($city); ?>
+                    </p>
+                </div>
+                <div class="text-block">
+                    <h5>How to Apply</h5>
+                    <p>
+                        <?php _e($job->how_to_apply,'r'); ?>
+                    </p>
+                </div>
+            </div>
+          </div>
+        </div>
 
+    </section>
+    <form class="row" role="form" action="<?php _e(BASE_URL . "payment/{$job->id}/{$job->token}"); ?>" method="post">
+      <input type="hidden" name="id" value="<?php _e($job->id); ?>" />
+      <input type="hidden" name="token" value="<?php _e($job->token); ?>" />
+      <input type="hidden" name="trap" value="" />
+      <input type="hidden" name="<?php _e($csrf_key); ?>" value="<?php _e($csrf_token); ?>">
+      <div class="col-md-6" style="float:none; margin:0 auto; padding-top: 30px;">
+      <script
+              src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+              data-key="pk_test_YngjOGM6lZecwKYEKavkGAHq"
+              data-amount="9999"
+              data-name="HealthcarePrJobs.london"
+              data-description="Job Posting for 90 Days"
+              data-image=""
+              data-locale="auto">
+            </script>
+        </div>
+    </form>
+  
+  </section>
 
-
+</div>   
+        
 <?php include 'footer.php'; ?>

@@ -87,6 +87,8 @@ $app->group('/jobs', function () use ($app) {
         }
         
     });
+
+    
     
     // post job publish form
     $app->post('/:id/publish/:token', 'isJobPostAllowed', 'isBanned', 'isValidReferrer', function ($id, $token) use ($app) {
@@ -138,33 +140,33 @@ $app->group('/jobs', function () use ($app) {
     // get publish job details 
     $app->get('/:id/publish/:token', 'isJobPostAllowed', 'isBanned', 'isValidReferrer', function ($id, $token) use ($app) {
         
-        global $lang;
+        // global $lang;
 
-        $j = new Jobs($id);
-        $job = $j->getJobFromToken($token);
+        // $j = new Jobs($id);
+        // $job = $j->getJobFromToken($token);
         
-        $title = $j->getSlugTitle();
-        $city = $j->getJobCity($job->city);
-        $category = $j->getJobCategory($job->category);
+        // $title = $j->getSlugTitle();
+        // $city = $j->getJobCity($job->city);
+        // $category = $j->getJobCategory($job->category);
         
-        if (isset($job) && $job->id) {
+        // if (isset($job) && $job->id) {
             
-            $seo_title = clean($job->title) .' | '. APP_NAME;
-            $seo_desc = excerpt($job->description);
-            $seo_url = BASE_URL ."jobs/{$id}/{$title}";
+        //     $seo_title = clean($job->title) .' | '. APP_NAME;
+        //     $seo_desc = excerpt($job->description);
+        //     $seo_url = BASE_URL ."jobs/{$id}/{$title}";
             
-            $app->render(THEME_PATH . 'job.publish.php', 
-                        array('lang' => $lang,
-                            'seo_url'=>$seo_url, 
-                            'seo_title'=>$seo_title, 
-                            'seo_desc'=>$seo_desc, 
-                            'job'=>$job, 
-                            'city'=>$city, 
-                            'category'=>$category));
-        } else {
-            $app->flash('danger', $lang->t('alert|error_encountered'));
-            $app->redirect(BASE_URL . "jobs/{$id}/{$title}");
-        }        
+        //     $app->render(THEME_PATH . 'job.publish.php', 
+        //                 array('lang' => $lang,
+        //                     'seo_url'=>$seo_url, 
+        //                     'seo_title'=>$seo_title, 
+        //                     'seo_desc'=>$seo_desc, 
+        //                     'job'=>$job, 
+        //                     'city'=>$city, 
+        //                     'category'=>$category));
+        // } else {
+        //     $app->flash('danger', $lang->t('alert|error_encountered'));
+        //     $app->redirect(BASE_URL . "jobs/{$id}/{$title}");
+        // }        
     });
     
     // edit job
@@ -175,7 +177,9 @@ $app->group('/jobs', function () use ($app) {
         $j = new Jobs($id);
         $job = $j->getJobFromToken($token);
         $title = $j->getSlugTitle();
-        
+        $city = $j->getJobCity($job->city);
+        $category = $j->getJobCategory($job->category);
+
         if (isset($job) && $job) {
             $seo_title = 'Edit job | '. APP_NAME;
             $seo_desc = APP_DESC;
@@ -187,6 +191,8 @@ $app->group('/jobs', function () use ($app) {
                             'seo_title'=>$seo_title, 
                             'seo_desc'=>$seo_desc, 
                             'job'=>$job,
+                            'city'=>$city,
+                            'category'=>$category,
                             'markdown'=>ACTIVE,
                             'filestyle'=>ACTIVE));
         } else {

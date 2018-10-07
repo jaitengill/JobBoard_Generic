@@ -1,1 +1,11 @@
 /*! Place your custom styles here */
+
+.navbar-brand img {
+	width: 330px !important;
+}
+
+@media(max-width: 500px) {
+	.navbar-brand img {
+		width:270px !important;
+	}
+}

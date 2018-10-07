@@ -1,6 +1,7 @@
 <?php include 'header.php'; ?>
 <?php include 'search-form.php'; ?>
 
+<div class="container">
 <h4><?php _e($count); ?> <?php echo $lang->t('search|jobs_found'); ?> "<?php _e($terms); ?>"</h4>
 <?php foreach($categories as $category): ?>
 <h3><?php _e($category->name); ?> <?php echo $lang->t('jobs|jobs'); ?></h3>
@@ -23,4 +24,5 @@ endif; ?>
 <div class="pull-right"><a href="#top"><?php echo $lang->t('jobs|back_to_top'); ?></a></div>
 <?php endforeach; ?>
 
+</div>
 <?php include 'footer.php'; ?>

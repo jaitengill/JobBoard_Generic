@@ -15,8 +15,7 @@
     
     <!-- From Stack Theme -->
     <link href="<?php _e(THEME_ASSETS); ?>css/stack/stack-interface.css" rel="stylesheet" type="text/css" media="all" />
-    <link href="<?php _e(THEME_ASSETS); ?>css/stack/socicon.css" rel="stylesheet" type="text/css" media="all" />
-    <link href="<?php _e(THEME_ASSETS); ?>css/stack/lightbox.min.css" rel="stylesheet" type="text/css" media="all" />
+    <link rel="stylesheet" href="https://d1azc1qln24ryf.cloudfront.net/114779/Socicon/style-cf.css?9ukd8d">
     <link href="<?php _e(THEME_ASSETS); ?>css/stack/flickity.css" rel="stylesheet" type="text/css" media="all" />
     <link href="<?php _e(THEME_ASSETS); ?>css/stack/iconsmind.css" rel="stylesheet" type="text/css" media="all" />
     <link href="<?php _e(THEME_ASSETS); ?>css/stack/jquery.steps.css" rel="stylesheet" type="text/css" media="all" />
@@ -24,6 +23,7 @@
     <link href="<?php _e(THEME_ASSETS); ?>css/stack/custom.css" rel="stylesheet" type="text/css" media="all" />
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:200,300,400,400i,500,600,700%7CMerriweather:300,300i" rel="stylesheet">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
   
     <link rel="shortcut icon" href="<?php _e(THEME_ASSETS);; ?>ico/favicon.png">
     <!-- Open Graph -->
@@ -38,6 +38,9 @@
     <link rel="canonical" href="<?php _e($seo_url); ?>" />
     <link rel="shortlink" href="<?php _e($seo_url); ?>" />
 
+    <script src="https://cloud.tinymce.com/stable/tinymce.min.js"></script>
+    <script>tinymce.init({ selector:'textarea1' });</script>
+
     <?php if (isset($markdown)): ?>
         <link href="<?php _e(ASSET_URL); ?>bootstrap-markdown/css/bootstrap-markdown.min.css" rel="stylesheet">
     <?php endif; ?>
@@ -48,7 +51,7 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-3 col-md-2">
-                            <a class="navbar-brand" href="<?php _e(BASE_URL); ?>"><?php _e(APP_NAME); ?></a>
+                            <a class="navbar-brand" href="<?php _e(BASE_URL); ?>"><img src="<?php _e(THEME_ASSETS); ?>images/logo.png"/></a>
 
                         </div>
                         <div class="col-9 col-md-10 text-right">
@@ -62,12 +65,12 @@
                 <!--end of container-->
             </div>
             <!--end bar-->
-            <nav id="menu1" class="bar bar--sm bar-1 hidden-xs bg--secondary">
+            <nav id="menu1" class="bar bar--sm bar-1 hidden-xs bg--site">
                 <div class="container">
                     <div class="row">
                         <div class="col-lg-5 hidden-xs">
                             <div class="bar__module">
-                                <a class="navbar-brand" href="<?php _e(BASE_URL); ?>"><?php _e(APP_NAME); ?></a>
+                                <a class="navbar-brand" href="<?php _e(BASE_URL); ?>"><img src="<?php _e(THEME_ASSETS); ?>images/logo.png"/></a>
                             </div>
                             <!--end module-->
                         </div>
@@ -75,26 +78,26 @@
                             <div class="bar__module">
                                 <ul class="menu-horizontal text-left">
                                     <li>
-                                        <a href="">Home</span>
+                                        <a href="/">Home</span>
                                     </li>
                                     <li>
-                                        <a href="">All Jobs</span>
+                                        <a href="/all">All Jobs</span>
                                     </li>
                                     <li>
-                                        <a href="">FAQ</span>
+                                        <a href="/faq">FAQ</span>
                                     </li>
-                                    <li>
+                                <!--     <li>
                                         <a href="">Resources</span>
                                     </li>
                                     <li>
                                         <a href="">How to post</span>
-                                    </li>
+                                    </li> -->
                                    
                                 </ul>
                             </div>
                             <!--end module-->
                             <div class="bar__module">
-                                <a class="btn btn--sm btn--primary type--uppercase" href="#">
+                                <a class="btn btn--sm btn--primary type--uppercase" href="/jobs/new" style="background: #3eaaf5;">
                                     <span class="btn__text">
                                         Post a Job
                                     </span>
@@ -110,6 +113,6 @@
             <!--end bar-->
         </div>
 
-        <div class="main-container theme-showcase">
+        <div class="container theme-showcase">
 
      

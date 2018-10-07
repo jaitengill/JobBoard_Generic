@@ -38,7 +38,7 @@
                     <div class="text-block">
                         <h5>Location</h5>
                         <p>
-                            <?php _e($job->city); ?>
+                            <?php _e($city); ?>
                         </p>
                     </div>
                 </div>
@@ -56,11 +56,11 @@
                         <p class="lead">
                             <?php _e($job->how_to_apply,'r'); ?>
                         </p>
-                        <a class="btn btn--primary type--uppercase" href="<?php _e(BASE_URL . "apply/{$job->id}"); ?>">
+                     <!--    <a class="btn btn--primary type--uppercase" href="<?php _e(BASE_URL . "apply/{$job->id}"); ?>">
                             <span class="btn__text">
                                 Apply Now
                             </span>
-                        </a>
+                        </a> -->
                     </div>
                 </div>
             </div>

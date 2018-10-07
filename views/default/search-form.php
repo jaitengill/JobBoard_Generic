@@ -1,7 +1,7 @@
 <!-- search -->
 
 
-<div class="boxed boxed--lg bg--white text-center">
+<div class="boxed boxed--lg bg--white text-center" style="padding-top:0;">
     <form class="form--horizontal row" role="form" method="post" action="<?php _e(BASE_URL . 'search/'); ?>">
         <div class="col-md-8">
             <input type="hidden" name="<?php _e($csrf_key); ?>" value="<?php _e($csrf_token); ?>">

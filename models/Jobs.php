@@ -67,7 +67,6 @@ class Jobs
             $job->token = $data['token'];
             $job->status = $status;
         }
-        
         $job->title = $data['title'];
         $job->category = $data['category'];
         $job->city = $data['city'];

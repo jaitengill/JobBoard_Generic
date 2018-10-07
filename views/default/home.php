@@ -2,14 +2,14 @@
 
 <?php include 'flash.php'; ?>
 <!-- Missing Header -->
-<section class="bg--secondary text-center" style="padding-bottom: 1em; padding-top: 1em;">
+<section class="bg--site text-center" style="padding-bottom: 1em; padding-top: 1em;">
     <div class="container">
         <div class="row">
             <div class="col-md-12">
 
                 <h1 class="typed-text typed-text--cursor" data-typed-strings="Find Healthcare PR Jobs in London ^3000, Find Medical Communcation Jobs in London ^3000"></h1>
                 <p class="lead">
-                    Browse Healthcare PR and Medical Communication jobs from high-profile employers in the UK
+                    Browse Healthcare PR and Medical Communication jobs from  employers across the UK
                 </p>
                 <?php include 'search-form.php'; ?>
 
@@ -23,14 +23,17 @@
 <div class="container">
 <?php foreach($categories as $category): ?>
 <a name="<?php _e($category->url); ?>"></a>
-<h3><?php _e($category->name); ?> <?php echo $lang->t('jobs|jobs'); ?> <a href="<?php _e(BASE_URL ."categories/{$category->id}/{$category->url}/rss"); ?>" target="_blank" class="badge job-rss">RSS</a></h3>
+<h3><b style="color:#0693b6;"><?php _e($category->name); ?></b> <?php echo $lang->t('jobs|jobs'); ?> <a href="<?php _e(BASE_URL ."categories/{$category->id}/{$category->url}/rss"); ?>" target="_blank" class="badge job-rss">RSS</a></h3>
 <div class="list-group">
 <?php foreach($jobs[$category->id] as $job): ?>
     <a class="list-group-item <?php if ($job->is_featured): ?>job-highlight<?php endif; ?>" href="<?php _e(BASE_URL ."jobs/{$job->id}/". slugify($job->title ." {$lang->t('jobs|at')} ". $job->company_name)); ?>">
+        <?php if ($job->logo != ''): ?>
+            <img src="<?php echo ASSET_URL ."images/thumb_{$job->logo}"; ?>" alt="" class="img-thumbnail">
+        <?php endif; ?>
     <h4 style="margin-bottom: 0px;">
         <span class="job-title"><?php _e($job->title); ?></span>&nbsp;
         <span class="job-company"><?php _e($job->company_name); ?></span>
-        <span class="badge pull-right"><?php niceDate($job->created); ?></span>
+        <span class="badge pull-right">Posted on <?php niceDate($job->created); ?></span>
     </h4>
     </a>
 <?php endforeach; ?>
