@@ -34,7 +34,7 @@ $lang = new Translate();
 // APPLICATION SETTINGS
 define('APP_NAME', 'HealthcarePRJobs.London');
 define('APP_DESC', $lang->t('app|desc'));
-define('APP_AUTHOR', 'Elinore Tenorio (elinore.tenorio@gmail.com)');
+define('APP_AUTHOR', 'Jaiten Gill');
 define('APP_MODE', 'development'); // set to 'production' if site is live, affects RedBean not being frozen if not in correct mode
 define('APP_THEME', 'default'); // set to the theme folder name you are using, found in /views directory
 
@@ -59,13 +59,13 @@ define('SMTP_PORT', 465);
 define('SMTP_SECURE', 'ssl');
 
 // APPLICATION URL PATHS
-define('BASE_URL','http://localhost:8888/'); // always include the trailing slash at the end
+define('BASE_URL','http://healthcareprjobs.london/'); // always include the trailing slash at the end
 
 // DATABASE SETTINGS
 define('DB_HOST', 'localhost');
 define('DB_NAME', 'jobskee');
 define('DB_USER', 'root');
-define('DB_PASS', 'root');
+define('DB_PASS', 'jimSport9232');
 
 // GOOGLE ANALYTICS TRACKING
 define('GA_TRACKING', '');
