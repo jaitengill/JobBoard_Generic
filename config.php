@@ -65,7 +65,7 @@ define('BASE_URL','http://healthcareprjobs.london/'); // always include the trai
 define('DB_HOST', 'localhost');
 define('DB_NAME', 'jobskee');
 define('DB_USER', 'root');
-define('DB_PASS', 'jimSport9232');
+define('DB_PASS', 'root');
 
 // GOOGLE ANALYTICS TRACKING
 define('GA_TRACKING', '');
