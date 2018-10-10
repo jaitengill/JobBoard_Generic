@@ -359,20 +359,9 @@ class RedBean_Driver_PDO implements RedBean_Driver
 	{
 		if ( $this->isConnected ) return;
 		try {
-			$user = $this->connectInfo['user'];
-			$pass = $this->connectInfo['pass'];
-
-			$this->pdo = new PDO(
-				$this->dsn,
-				$user,
-				$pass,
-				array(PDO::ATTR_ERRMODE            => PDO::ERRMODE_EXCEPTION,
-					   PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
-				)
-			);
-			
-			$this->setEncoding();
-			$this->pdo->setAttribute( PDO::ATTR_STRINGIFY_FETCHES, TRUE );
+			$user = 'root';
+    			$pass = 'root';
+    			$this->pdo = new PDO('mysql:host=localhost;dbname=jobskee', $user, $pass);
 
 			$this->isConnected = TRUE;
 		} catch ( PDOException $exception ) {
