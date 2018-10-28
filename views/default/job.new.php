@@ -44,8 +44,8 @@
         </div>
         <div class="row col-md-12">
           <div class="col-md-6">
-              <label>Compensation:</label>
-              <textarea id="perks" name="perks" placeholder="100,000 GBP Yearly" rows="2" ></textarea>
+              <label>Salary:</label>
+              <textarea id="perks" name="perks" placeholder="eg. £100,000/yearly" rows="2" ></textarea>
           </div>
           <div class="col-md-6">
               <label><?php echo $lang->t('jobs|how_to_apply'); ?></label>

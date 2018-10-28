@@ -9,7 +9,7 @@
 
                 <h1 class="typed-text typed-text--cursor" data-typed-strings="Find Healthcare PR Jobs in London ^3000, Find Medical Communcation Jobs in London ^3000"></h1>
                 <p class="lead">
-                    Browse Healthcare PR and Medical Communication jobs from  employers across the UK
+                    London’s premier job board for Healthcare Communications jobs!
                 </p>
                 <?php include 'search-form.php'; ?>
 
